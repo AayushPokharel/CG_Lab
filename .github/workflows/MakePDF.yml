@@ -1,0 +1,34 @@
+name: MakePDF
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compile-pdf:
+    name: Compile pdf
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create Lab_1 pdf
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "*.tex"
+          worling_directory: "Reports/"
+          glob_root_file: true
+          work_in_root_file_dir: true
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'ref/tags/')
+        with:
+          files: |
+            Reports/Lab_1.pdf
+            Reports/Lab_2.pdf
+            Reports/Lab_3.pdf
+            Reports/Lab_4.pdf
+            Reports/Lab_5.pdf
+            Reports/Lab_Project.pdf

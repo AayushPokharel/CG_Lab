@@ -23,7 +23,6 @@ jobs:
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'ref/tags/')
         with:
           files: |
             Reports/Lab_1.pdf

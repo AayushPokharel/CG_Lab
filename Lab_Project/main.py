@@ -178,7 +178,7 @@ class BackgroundLines:
         glEnableVertexAttribArray(0) # This defines the data for location 0 in our GLSL shader which is for location coordinates.
         
         # This function defines how the content in the buffer is actually made.
-        # It las location 0, takes 3 elements, is a float, the vertices are not normalized and the one vertex is 6*4 bis = 24 bits long.
+        # It has location 0, takes 3 elements, is a float, the vertices are not normalized and the one vertex is 6*4 bis = 24 bits long.
         # and the pointer for this array starts at position 0 i,e at the front,
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 24, ctypes.c_void_p(0))
         

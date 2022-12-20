@@ -7,8 +7,10 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{biblatex}
+\usepackage{minted}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.9}
 
-\addbibresource{References.bib}
 
 
 \setlength{\headheight}{15.2pt}
@@ -34,7 +36,7 @@
 
 \centerline{\textbf{A Project Report}}
 \centerline{on}
-\centerline{\underline{\textbf{"Tick Tack Toe"}}}
+\centerline{\underline{\textbf{"Tic Tac Toe"}}}
 
 \vspace*{12mm}
 
@@ -57,7 +59,7 @@
 
 \vspace*{20mm}
 
-\centerline{\textbf{Submission Date: 18th December, 2022}}
+\centerline{\textbf{Submission Date: 20th December, 2022}}
 
 
 
@@ -65,15 +67,15 @@
 \thispagestyle{empty}
 
 \section*{Abstract}
-The project report for the mini project "Tick Tack Toe" is drafted to meet the prerequisites to partially fulfill
+The project report for the mini project "Tic Tac Toe" is drafted to meet the prerequisites to partially fulfill
 the COMP 342 course offered by the Department of Computer Science and Engineering at Kathmandu University.
 This project was designed with the objective to teach the OpenGL rendering pipeline in a practical manner to the students enrolled in
-COMP 342 course.\\
+COMP 342 course.\\\\
 We the involved project members decided to utilize PyOpenGL, a Python wrapper library for OpenGL's API, and PyGame to create a small pixel-perfect game having a resolution of 800x800 pixels
 to meet the requirements of the course. Keeping the restriction of only using OpenGL for rendering, we forgo PyGame's abstracted library functions
 for rendering and used PyOpenGL to render the graphics in the PyGame window under a double buffer system.
-PyGame however was used to code the game logic, loops, and windowing tasks.\\
-For the application, the grid lines to make the tick tack toe board was rendered, and then via appending the vertices list, later on, rebinding the updated buffer and redrawing it, user input was rendered.
+PyGame however was used to code the game logic, loops, and windowing tasks.\\\\
+For the application, the grid lines to make the tic tac toe board was rendered, and then via appending the vertices list, later on, rebinding the updated buffer and redrawing it, user input was rendered.
 \\\\
 \textbf{Keywords: }OpenGL, PyGame, PyOpenGL,
 
@@ -103,13 +105,13 @@ We have used PyOpenGL to bind Python to OpenGL and related APIs using provided l
 The main objective of this project is to understand the concepts of the OpenGL Rendering pipeline and utilize the knowledge to create a practical example to enhance our knowledge to solve real-life problems. Besides, the other objectives are listed below:
 \begin{itemize}
     \item To create a playable multiplayer game.
-    \item To learn how cython data types can be used in to make a python script communicate with a C library.
+    \item To learn how python data types can be used in to make a python script communicate with a C library.
     \item To explore the Desktop app creation process.
 \end{itemize}
 
 \subsection{Motivation and Significance}
 The main motivation behind this project is to learn the fundamentals and working procedures of the OpenGL rendering pipeline in a fun and entertaining manner. Furthermore, the noble idea of becoming a game developer and utilizing the concepts discussed in
-a Kathmandu University Open Source Society (KUOSC)'s game dev workshop solidified the idea to make the Tick Tack Toe game.
+a Kathmandu University Open Source Society (KUOSC)'s game dev workshop solidified the idea to make the Tic Tac Toe game.
 \clearpage
 \section{CHAPTER 2: PROJECT DETAILS}
 The project is a simple game and only has one window that accepts the mouse input to draw the 2D shapes.\\
@@ -150,7 +152,7 @@ The app class has the following methods:
 \end{itemize}
 \clearpage
 \subsection{BackgroundLines}
-The BackgroundLine class is the class responsible for the drawing of the vertices on the window and the OpenGL rendering pipeline. It has an attribute named \textbf{vertices} which is a list that contains the vertices that bind to the Array Buffer and are used to render the line. We initially draw the gridlines to make the 'tick tack toe' board and
+The BackgroundLine class is the class responsible for the drawing of the vertices on the window and the OpenGL rendering pipeline. It has an attribute named \textbf{vertices} which is a list that contains the vertices that bind to the Array Buffer and are used to render the line. We initially draw the gridlines to make the 'tic tac toe' board and
 then dynamically append the vertices to create the user input-related shapes.
 \\\\
 The BackgroundLines class has the following methods:
@@ -190,15 +192,45 @@ The app has the following methods:
 \end{itemize}
 
 
-\section{CHAPTER 3: Conclusion}
-This project has enabled us to work with mid-level OpenGL complexity. This project has demonstrated the scope of the OpenGL platform for low-cost and simple game development. It serves as an important stepping stone for venturing into the field of Computer Graphics Design and application.
+\section{CHAPTER 3: CONCLUSION}
+OpenGL serves as an important stepping stone for venturing into the field of Computer Graphics Design and Application. This project has enabled us to work with mid-level OpenGL complexity. We have extensively documented the work of each function call and variable used in the project for better understanding. Hence, developing a simple game 'Tic tac toe' has demonstrated the usefulness of the OpenGL platform for low-cost and simple game development.
 \subsection{Problems Encountered}
-
+The following issues were encountered during the game development process:
+\begin{itemize}
+    \item As OpenGL is not an UI Library, an user-friendly UI couldn't be created.
+    \item It was too complicated to render text using OpenGL due to which we get a white blank window screen on 'Win' condition.
+\end{itemize}
 \subsection{Future Enhancements}
-
+The following actions could be taken to improve the program:
+\begin{itemize}
+    \item We can make the UI simple and more user-friendly.
+    \item We can add the functionality of 'Redo' and 'Undo' to the program.
+    \item We can display the winner's name in the window screen after a player wins.
+    \item We can add a replay function.
+\end{itemize}
 
 \clearpage
-\thispagestyle{empty}
-\printbibliography
+
+\section{VIDEO DEMONSTRATION}
+\begin{itemize}
+    \item Environment Setup\\
+          \url{https://drive.google.com/file/d/12uOjQp0a1VumHvTVa8jk84nolvt9Oxm4/view?usp=sharing}
+    \item Application Demo\\
+          \url{https://drive.google.com/file/d/1Yty0j2IKSQPJlEcB27bdLMEo6geNegG_/view?usp=sharing}
+\end{itemize}
+
+\section{SOURCE CODE}
+\textbf{The Repository for this project can be found at }\\\\ \url{https://github.com/AayushPokharel/CG_Lab/tree/main/Lab_Project}
+\clearpage
+
+\section{REFERENCES}
+\begin{itemize}
+    \item PyOpenGL Documentation.\\ \url{https://pyopengl.sourceforge.net/documentation/index.html?}
+
+    \item OpenGL® 4.5 Reference Pages.\\ \url{https://registry.khronos.org/OpenGL-Refpages/gl4/?}
+
+    \item PyGame.\\
+          \url{https://devdocs.io/pygame/}
+\end{itemize}
 
 \end{document}
